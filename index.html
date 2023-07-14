@@ -12,7 +12,7 @@
     <body>
         <nav class="navbar">
             <div class="container-fluid">
-                <button type="button" class="btn btn-outline-primary">View High Scores</button>
+                <button id="highScoresBtn" type="button" class="btn btn-outline-primary">View High Scores</button>
                 <p class="text-end" id="timer"></p>
             </div>
         </nav>
@@ -29,17 +29,25 @@
                     </p>
                 </div>
             </div>
-            <div class="container col-12 col-lg-6 col-md-6 mt-4 text-center">
-                <h1 id="question"></h1>
-                <div id="options" class="btn-group-vertical col-12 col-lg-6 col-md-6" style="display: none">
-                    <button class="btn btn-primary mt-1" id="option1"></button>
-                    <button class="btn btn-primary mt-1" id="option2"></button>
-                    <button class="btn btn-primary mt-1" id="option3"></button>
-                    <button class="btn btn-primary mt-1" id="option4"></button>
+            
+            <div id="quizCard" class="card text-center" style="display: none;">
+                <div class="card-body">
+                    <h5 id="question" class="card-title"></h5>
+                    <div id="options">
+                        <button id="option1" class="btn btn-primary"></button>
+                        <button id="option2" class="btn btn-primary"></button>
+                        <button id="option3" class="btn btn-primary"></button>
+                        <button id="option4" class="btn btn-primary"></button>
+                    </div>
                 </div>
+                <div id="rightWrong" class="card-footer text-muted" style="display: none;"></div>
             </div>
+
+            <div id="high"></div>
+            
             <button type="button" class="btn btn-primary" id="startQuiz">Start Quiz</button>
         </div>
+        
         <script src="./assets/js/script.js"></script>
     </body>
 </html>

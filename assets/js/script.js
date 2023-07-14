@@ -1,6 +1,7 @@
 // Create a countdown timer
 var timer = document.getElementById("timer");
 const startQuizButton = document.querySelector("#startQuiz");
+const highScores = document.querySelector("#highScoresBtn");
 
 let questions = [
     {
@@ -82,13 +83,31 @@ function setTime() {
     // Set timer function
     var timerInterval = setInterval(function() {
         secondsLeft--;
-        timer.textContent = "Time Remaining: " + secondsLeft;
+        timer.textContent = "Time Remaining: " + secondsLeft;        
+        
+        if(highScores.clicked) {
+            secondsLeft = 0;
+        }
 
-        if(secondsLeft === 0) {
+        if(secondsLeft = 0) {
             // Stops execution of action at set interval
-            clearInterval(timerInterval);
+            window.clearInterval(timerInterval);
+            timer.innerText = "";
+            timer.style.display = "none";
         }
     }, 1000);
+}
+
+function checkAnswer(answer, option) {
+    var correct;
+    var incorrect;
+    if(answer === option) {
+        correct = true;
+        return correct;
+    } else {
+        incorrect = false;
+        return incorrect;
+    }
 }
 
 function showQuestions() {
@@ -96,16 +115,17 @@ function showQuestions() {
     document.getElementById("quizTitle").style.display = "none";
     document.getElementById("quizDescription").style.display = "none";
     startQuizButton.style.display = "none";
-    var options = document.getElementById("options");
-    options.style.display = "block";
+    var quizCard = document.getElementById("quizCard");
+    quizCard.style.display = "";
     var optionsParent = document.getElementById("options");
     var optionsChildren = optionsParent.querySelectorAll("button");
     console.log(optionsChildren.length);
 
+    // Initiate timer
     setTime();
     var questionTitle = document.getElementById("question");
-    // questionTitle.innerText = questions[0].question;
 
+    // Iterate through each question and its options
     for(var i = 0; i < questions.length; i++) {
         questionTitle.innerText = questions[i].question;
         for(var j = 0; j < optionsChildren.length; j++) {
@@ -114,4 +134,22 @@ function showQuestions() {
     }
 };
 
-startQuiz.addEventListener("click", showQuestions);
+function goHome() {
+    document.getElementById("quizTitle").style.display = "";
+    document.getElementById("quizDescription").style.display = "";
+    startQuizButton.style.display = "";
+    highScores.innerText = "View High Scores";
+}
+
+function showHighScores() {
+    document.getElementById("quizTitle").style.display = "none";
+    document.getElementById("quizDescription").style.display = "none";
+    startQuizButton.style.display = "none";
+    highScores.innerText = "Home";
+    highScores.addEventListener("click", goHome);
+    quizCard.style.display = "none";
+}
+
+startQuizButton.addEventListener("click", showQuestions);
+
+highScores.addEventListener("click", showHighScores);
