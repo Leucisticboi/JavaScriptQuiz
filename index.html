@@ -33,14 +33,12 @@
             <div id="quizCard" class="card text-center" style="display: none;">
                 <div class="card-body" id="card-body">
                     <h5 id="question" class="card-title"></h5>
-                    <div id="options">
-                        <!-- <button id="option1" class="btn btn-primary"></button>
-                        <button id="option2" class="btn btn-primary"></button>
-                        <button id="option3" class="btn btn-primary"></button>
-                        <button id="option4" class="btn btn-primary"></button> -->
-                    </div>
+                    <div id="options"></div>
                 </div>
-                <div id="rightWrong" class="card-footer text-muted" style="display: none;"></div>
+                <div class="card-footer text-muted">
+                    <div id="rightWrong"></div>
+                    <div id="currentScore"></div>
+                </div>
             </div>
 
             <div id="high"></div>
@@ -49,5 +47,6 @@
         </div>
         
         <script src="./assets/js/script.js"></script>
+        <script src="./assets/js/highscore.js"></script>
     </body>
 </html>
