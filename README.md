@@ -10,6 +10,8 @@ Click the Start Quiz button to begin the quiz. When the quiz starts the timer wi
 
 Select your answer to the given question by clicking one of the buttons underneath the question.
 
+Clicking the View High Scores button will take you to the highscore page. I have not completed the highscore page's functionality. The highscore page has a Home button which will take you to the original landing page. 
+
 ## Screenshots
 ![Screenshot of finished project homepage](./assets/screenshots/Home_Screenshot.png)
 ![Screenshot of first quiz question with answer buttons and active timer](./assets/screenshots/First_Question.png)
